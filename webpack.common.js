@@ -1,7 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	entry: './src/index.js',
@@ -26,8 +26,8 @@ module.exports = {
 			title: 'Brian Horvat'
 		}),
 		new MiniCssExtractPlugin({
-			filename: "[name].css",
-			chunkFilename: "[id].css"
+			filename: process.env.WEBPACK_MODE !== 'production' ? '[name].css' : '[name].[hash].css',
+			chunkFilename: '[id].css'
 		  })
 	],
 	module: {
@@ -53,11 +53,15 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.scss$/,
+				test: /\.s?css$/,
 				use: [
 					process.env.WEBPACK_MODE !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-					"css-loader", // translates CSS into CommonJS
-					"sass-loader" // compiles Sass to CSS, using Node Sass by default
+					{
+						loader: 'css-loader',
+						options: { importLoaders: 1 }
+					},
+          			'postcss-loader',
+					'sass-loader'
 				]
 			},
 			{
