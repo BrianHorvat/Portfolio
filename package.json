@@ -1,0 +1,40 @@
+{
+  "name": "bhorvat-portfolio",
+  "version": "1.0.0",
+  "description": "Brian Horvat's portfolio website",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianHorvat/Portfolio.git"
+  },
+  "author": "Brian Horvat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianHorvat/Portfolio/issues"
+  },
+  "homepage": "https://github.com/BrianHorvat/Portfolio#readme",
+  "scripts": {
+    "serve": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "favicons-webpack-plugin": "0.0.9",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.3",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "svg-inline-loader": "^0.8.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
+  }
+}
